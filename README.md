@@ -1,225 +1,224 @@
-# Ambiente de Desenvolvimento
+# Development Environment
 
-Este repositório contém um tutorial resumido para minha configuração de ambiente de desenvolvimento com WSL, Chocolatey, Zsh, Oh My Zsh, NVM (Node Version Manager) e várias ferramentas úteis para produtividade. Abaixo estão os passos detalhados para configurar o ambiente e as extensões recomendadas para o VSCode.
+This repository contains a summarized tutorial for setting up my development environment with WSL, Chocolatey, Zsh, Oh My Zsh, NVM (Node Version Manager), and various productivity tools. Below are the detailed steps for setting up the environment and recommended extensions for VSCode.
 
-## Índice
+## Table of Contents
 
-1. [Requisitos](#requisitos)
-2. [Instalação do WSL](#instalação-do-wsl)
-3. [Instalar Chocolatey](#instalar-chocolatey)
-4. [Instalar o Hyper](#instalar-o-hyper)
-5. [Atualizar o Sistema Linux (WSL)](#atualizar-o-sistema-linux-wsl)
-6. [Instalar Zsh e Oh My Zsh](#instalar-zsh-e-oh-my-zsh)
-7. [Instalar e Configurar NVM](#instalar-e-configurar-nvm-node-version-manager)
-8. [Instalar o Tema Powerlevel10k](#instalar-o-tema-powerlevel10k)
-9. [Extensões do VSCode](#extensões-do-vscode)
+1. [Requirements](#requirements)
+2. [Install WSL](#install-wsl)
+3. [Install Chocolatey](#install-chocolatey)
+4. [Install Hyper](#install-hyper)
+5. [Update Linux System (WSL)](#update-linux-system-wsl)
+6. [Install Zsh and Oh My Zsh](#install-zsh-and-oh-my-zsh)
+7. [Install and Configure NVM](#install-and-configure-nvm-node-version-manager)
+8. [Install Powerlevel10k Theme](#install-powerlevel10k-theme)
+9. [VSCode Extensions](#vscode-extensions)
 
-## Requisitos
+## Requirements
 
-Antes de começar a configuração, certifique-se de ter os seguintes itens:
+Before starting the setup, make sure you have the following items:
 
-- **Windows 10 ou 11** (para usar o WSL)
-- **Hyper** (terminal recomendado para WSL)
+- **Windows 10 or 11** (for using WSL)
+- **Hyper** (recommended terminal for WSL)
 - **Git**
 - **VSCode**
 - **WSL 2** (Windows Subsystem for Linux)
 
-## Instalação do WSL
+## Install WSL
 
-1. **Ativar WSL e Virtual Machine Platform:**
+1. **Enable WSL and Virtual Machine Platform:**
 
-    No PowerShell (como Administrador), execute:
+    In PowerShell (as Administrator), run the following commands:
 
     ```powershell
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
     Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
     ```
 
-    Reinicie o computador após executar esses comandos.
+    Restart the computer after running these commands.
 
-2. **Instalar uma Distribuição Linux:**
+2. **Install a Linux Distribution:**
 
-    - Após a instalação do WSL, você pode instalar uma distribuição Linux a partir da Microsoft Store (ex: Ubuntu).
+    - After installing WSL, you can install a Linux distribution from the Microsoft Store (e.g., Ubuntu).
 
-3. **Atualizar o WSL para versão 2 (caso não tenha feito automaticamente):**
+3. **Update WSL to version 2 (if not automatically done):**
 
-    Execute o comando:
+    Run the command:
 
     ```bash
     wsl --set-default-version 2
     ```
 
-4. **Configuração inicial:**
+4. **Initial Setup:**
 
-    - Após a instalação, abra sua distribuição Linux e configure-a conforme necessário (nome de usuário, senha, etc.).
+    - After installation, open your Linux distribution and configure it as needed (username, password, etc.).
 
-## Instalar Chocolatey
+## Install Chocolatey
 
-No PowerShell (como Administrador), execute:
+In PowerShell (as Administrator), run:
 
 ```powershell
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 ```
 
-## Instalar o Hyper
+## Install Hyper
 
-O **Hyper** é o terminal recomendado para usar com o WSL. Para instalá-lo, siga os passos abaixo:
+**Hyper** is the recommended terminal for using with WSL. To install it, follow the steps below:
 
-1. **Baixar e instalar o Hyper:**
+1. **Download and Install Hyper:**
 
-    - Acesse o site oficial do [Hyper](https://hyper.is/) e baixe o instalador para o seu sistema.
-    - Após o download, siga o processo de instalação.
+    - Visit the official [Hyper website](https://hyper.is/) and download the installer for your system.
+    - After downloading, follow the installation process.
 
-2. **Configurar o Hyper para usar o WSL:**
+2. **Configure Hyper to use WSL:**
 
-    - O Hyper já vem configurado para usar o WSL por padrão, mas você pode personalizar o arquivo de configuração `.hyper.js`. Para configurar a fonte e o shell, siga os passos abaixo:
+    - Hyper comes preconfigured to use WSL by default, but you can customize the `.hyper.js` configuration file. To configure the font and shell, follow these steps:
 
-    1. Abra o arquivo de configuração do Hyper, localizado em `~/.hyper.js`. Se você não sabe onde está o arquivo, ele geralmente fica na pasta do usuário, como `C:\Users\<Seu Nome>\AppData\Roaming\Hyper\`.
+    1. Open the configuration file of Hyper located at `~/.hyper.js`. If you’re unsure where the file is, it’s usually in the user folder, such as `C:\Users\<YourName>\AppData\Roaming\Hyper\`.
 
-    2. Modifique o arquivo `.hyper.js` para incluir a fonte **FiraCode Nerd Font** e ajustar o shell para o **WSL**. Adicione ou modifique as seguintes linhas:
+    2. Modify the `.hyper.js` file to set the font to **FiraCode Nerd Font** and the shell to **WSL**. Add or modify the following lines:
 
     ```javascript
     module.exports = {
       config: {
-        // Fonte para o terminal
+        // Font for the terminal
         fontFamily: 'FiraCode Nerd Font',
 
-        // Configuração do shell para o WSL
+        // Set shell to WSL
         shell: 'C:\\Windows\\System32\\wsl.exe',
         shellArgs: ['~'],
 
-        // Outras configurações que você pode querer adicionar
-        // Exemplo de cores ou ajustes adicionais
+        // Other settings you may want to add
+        // Example of colors or additional adjustments
       }
     };
     ```
 
-    3. Salve o arquivo e reinicie o **Hyper** para que as configurações sejam aplicadas.
+    3. Save the file and restart **Hyper** for the changes to take effect.
 
-### Fontes no Hyper:
+### Fonts in Hyper:
 
-Para garantir que a **FiraCode Nerd Font** esteja disponível, você precisará instalá-la primeiro. Se você ainda não tem a fonte instalada, siga os seguintes passos:
+To ensure the **FiraCode Nerd Font** is available, you’ll need to install it first. If you don’t have the font installed, follow these steps:
 
-- **Instalar a FiraCode Nerd Font**:
-  1. Acesse o site [Nerd Fonts](https://www.nerdfonts.com/) e baixe a fonte **FiraCode Nerd Font**.
-  2. Após o download, extraia o arquivo e instale as fontes no seu sistema.
+- **Install FiraCode Nerd Font**:
+  1. Visit the [Nerd Fonts website](https://www.nerdfonts.com/) and download **FiraCode Nerd Font**.
+  2. After downloading, extract the file and install the font on your system.
 
-Com essas configurações, o **Hyper** estará pronto para usar o **FiraCode Nerd Font** e o shell do **WSL**, criando um ambiente mais confortável para trabalhar com desenvolvimento no terminal.
+With these configurations, **Hyper** will be ready to use **FiraCode Nerd Font** and the **WSL** shell, creating a more comfortable environment for terminal-based development.
 
-## Atualizar o Sistema Linux (WSL)
+## Update Linux System (WSL)
 
-No terminal do WSL (Linux), execute:
+In the WSL terminal (Linux), run:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Instalar Zsh e Oh My Zsh
+## Install Zsh and Oh My Zsh
 
-Para um shell mais poderoso e personalizável, instale o **Zsh** e o **Oh My Zsh**.
+For a more powerful and customizable shell, install **Zsh** and **Oh My Zsh**.
 
-1. **Instalar o Zsh:**
+1. **Install Zsh:**
 
-    No terminal do WSL (Linux), execute:
+    In the WSL terminal (Linux), run:
 
     ```bash
     sudo apt install zsh -y
     ```
 
-2. **Instalar o Oh My Zsh:**
+2. **Install Oh My Zsh:**
 
-    No terminal do WSL (Linux), execute:
+    In the WSL terminal (Linux), run:
 
     ```bash
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     ```
 
-## Instalar e Configurar NVM (Node Version Manager)
+## Install and Configure NVM (Node Version Manager)
 
-O **NVM** é uma ferramenta essencial para gerenciar diferentes versões do Node.js. Para instalá-lo e configurá-lo, siga os passos abaixo:
+**NVM** is an essential tool for managing different versions of Node.js. To install and configure it, follow these steps:
 
-1. **Instalar NVM:**
+1. **Install NVM:**
 
-    No terminal do WSL (Linux), execute:
+    In the WSL terminal (Linux), run:
 
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
     ```
 
-2. **Configurar o NVM no Zsh:**
+2. **Configure NVM in Zsh:**
 
-    Após a instalação, adicione as configurações do NVM ao arquivo `~/.zshrc`:
+    After installation, add the NVM configurations to your `~/.zshrc` file:
 
     ```bash
     echo "export NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"\n[ -s \"$NVM_DIR/bash_completion\" ] && . \"$NVM_DIR/bash_completion\"" >> ~/.zshrc
     source ~/.zshrc
     ```
 
-## Instalar o Tema Powerlevel10k
+## Install Powerlevel10k Theme
 
-Para melhorar a aparência do terminal, instale o **Powerlevel10k**.
+To improve the terminal appearance, install **Powerlevel10k**.
 
-1. **Instalar Powerlevel10k:**
+1. **Install Powerlevel10k:**
 
-    No terminal do WSL (Linux), execute:
+    In the WSL terminal (Linux), run:
 
     ```bash
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     ```
 
-2. **Alterar o tema no Zsh:**
+2. **Change the theme in Zsh:**
 
-    Edite o arquivo `~/.zshrc` e defina o tema como `powerlevel10k/powerlevel10k`:
+    Edit the `~/.zshrc` file and set the theme to `powerlevel10k/powerlevel10k`:
 
     ```bash
     ZSH_THEME="powerlevel10k/powerlevel10k"
     ```
 
-3. **Aplicar as mudanças:**
+3. **Apply the changes:**
 
-    Para aplicar as mudanças, recarregue o Zsh:
+    To apply the changes, reload Zsh:
 
     ```bash
     source ~/.zshrc
     ```
 
-## Extensões do VSCode
+## VSCode Extensions
 
-Aqui estão as extensões recomendadas para o VSCode, organizadas por funções:
+Here are my main extensions for VSCode, organized by functionality:
 
-### Necessários
+### Essential
 
-- **Apc Customize UI++**: Personalização avançada da interface do VSCode.
-- **WSL**: Suporte para integrar o WSL diretamente no VSCode.
+- **Apc Customize UI++**: Advanced customization of the VSCode interface.
+- **WSL**: Support for integrating WSL directly into VSCode.
 
-### Tema/Decoração
+### Theme/Decoration
 
-- **Houston** (modificado): Este tema foi personalizado para melhor atender à minha preferência visual. Você pode conferir o arquivo modificado [aqui](https://github.com/Leugz/Setup/blob/main/houston.json) para detalhes das mudanças.
+- **Houston** (modified): This theme has been customized to better suit my visual preferences. You can check the modified file [here](https://github.com/Leugz/Setup/blob/main/houston.json) for details on the changes.
+- **Symbols**: For custom icons and visual improvements.
 
-- **Symbols**: Para ícones personalizados e melhorias visuais.
+### Key Functions
 
-### Funções Importantes
+- **Auto Close Tag**: Automatically closes HTML/JSX tags.
+- **Auto Rename Tag**: Automatically renames opening/closing HTML/JSX tags.
+- **Highlight Matching Tag**: Highlights the matching tag while editing.
+- **Auto Import**: Automatically adds imports for modules and packages.
+- **Auto Prefixer**: Automatically adds CSS prefixes.
+- **Color Highlight**: Highlights colors in the code.
 
-- **Auto Close Tag**: Fecha automaticamente as tags HTML/JSX.
-- **Auto Rename Tag**: Renomeia automaticamente as tags de abertura/fechamento HTML/JSX.
-- **Highlight Matching Tag**: Destaca a tag correspondente enquanto edita.
-- **Auto Import**: Adiciona automaticamente importações de módulos e pacotes.
-- **Auto Prefixer**: Adiciona automaticamente prefixos CSS.
-- **Color Highlight**: Destaca cores no código.
+### General
 
-### Gerais
+- **Discord Presence**: Shows your activity in Discord.
+- **GitLens — Git supercharged**: Enhances Git integration in VSCode.
+- **ESLint**: Linter for JavaScript and TypeScript.
+- **Prettier**: Auto-formatting of code.
+- **Pretty TypeScript Errors**: Improves TypeScript error readability.
 
-- **Discord Presence**: Exibe sua atividade no Discord.
-- **GitLens — Git supercharged**: Melhora a integração do Git com o VSCode.
-- **ESLint**: Linter para JavaScript e TypeScript.
-- **Prettier**: Formatação automática de código.
-- **Pretty TypeScript Errors**: Melhora a leitura de erros no TypeScript.
+### Support
 
-### Suporte
-
-- **HTML CSS Support**: Suporte completo para HTML e CSS.
-- **JavaScript and TypeScript Nightly**: Versões mais recentes do JavaScript/TypeScript.
+- **HTML CSS Support**: Full support for HTML and CSS.
+- **JavaScript and TypeScript Nightly**: Latest versions of JavaScript/TypeScript.
 
 ---
 
-Além das extensões, o arquivo `settings.json` do VSCode também contém as minhas configurações pessoais. Você pode conferir esse arquivo [aqui](https://github.com/Leugz/Setup/blob/main/settings.json) para aplicá-las no seu editor.
+In addition to the extensions, the `settings.json` file of VSCode also contains my personal configurations. You can check this file [here](https://github.com/Leugz/Setup/blob/main/settings.json) to apply them to your editor.
