@@ -171,7 +171,7 @@ Aqui estão as extensões recomendadas para o VSCode, organizadas por funções:
 
 ### Tema/Decoração
 
-- **Houston** (modificado): Este tema foi personalizado para melhor atender à minha preferência visual. Você pode conferir o arquivo modificado [aqui](https://github.com/seuusuario/seurepositorio/blob/main/.vscode/themes/Houston-modificado) para detalhes das mudanças.
+- **Houston** (modificado): Este tema foi personalizado para melhor atender à minha preferência visual. Você pode conferir o arquivo modificado [aqui](https://github.com/Leugz/Setup/blob/main/houston.json) para detalhes das mudanças.
 
 - **Symbols**: Para ícones personalizados e melhorias visuais.
 
@@ -199,4 +199,4 @@ Aqui estão as extensões recomendadas para o VSCode, organizadas por funções:
 
 ---
 
-Além das extensões, o arquivo `settings.json` do VSCode também contém as minhas configurações pessoais. Você pode conferir esse arquivo [aqui](https://github.com/seuusuario/seurepositorio/blob/main/.vscode/settings.json) para aplicá-las no seu editor.
+Além das extensões, o arquivo `settings.json` do VSCode também contém as minhas configurações pessoais. Você pode conferir esse arquivo [aqui](https://github.com/Leugz/Setup/blob/main/settings.json) para aplicá-las no seu editor.
