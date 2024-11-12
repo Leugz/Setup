@@ -221,4 +221,4 @@ Here are my main extensions for VSCode, organized by functionality:
 
 ---
 
-In addition to the extensions, the `settings.json` file of VSCode also contains my personal configurations. The file I share is a customization based on the settings of **Diego Fernandes**, an instructor at **Rocketseat**. My goal was to adjust the settings to optimize my development environment based on my workflow, but the foundation of the file follows the model used by Diego. You can view the file and adapt it as needed by accessing it [here](https://github.com/Leugz/Setup/blob/main/settings.json).
+In addition to the extensions, the `settings.json` file of VSCode also contains my personal configurations. The file I share is a customization based on the settings of **Diego Fernandes**, an instructor at **Rocketseat**. You can view the file and adapt it as needed by accessing it [here](https://github.com/Leugz/Setup/blob/main/settings.json).
