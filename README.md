@@ -1,6 +1,6 @@
 # Ambiente de Desenvolvimento
 
-Este repositório contém um tutorial resumido para configurar o ambiente de desenvolvimento com WSL, Chocolatey, Zsh, Oh My Zsh, NVM (Node Version Manager) e várias ferramentas úteis para produtividade. Abaixo estão os passos detalhados para configurar o ambiente e as extensões recomendadas para o VSCode.
+Este repositório contém um tutorial resumido para minha configuração de ambiente de desenvolvimento com WSL, Chocolatey, Zsh, Oh My Zsh, NVM (Node Version Manager) e várias ferramentas úteis para produtividade. Abaixo estão os passos detalhados para configurar o ambiente e as extensões recomendadas para o VSCode.
 
 ## Índice
 
@@ -21,7 +21,7 @@ Antes de começar a configuração, certifique-se de ter os seguintes itens:
 - **Windows 10 ou 11** (para usar o WSL)
 - **Hyper** (terminal recomendado para WSL)
 - **Git**
-- **VSCode** (ou outro editor de sua escolha)
+- **VSCode**
 - **WSL 2** (Windows Subsystem for Linux)
 
 ## Instalação do WSL
@@ -72,16 +72,39 @@ O **Hyper** é o terminal recomendado para usar com o WSL. Para instalá-lo, sig
 
 2. **Configurar o Hyper para usar o WSL:**
 
-    - O Hyper já vem configurado para usar o WSL por padrão, mas você pode personalizar o arquivo de configuração `.hyper.js` se necessário. Aqui está um exemplo de configuração básica:
+    - O Hyper já vem configurado para usar o WSL por padrão, mas você pode personalizar o arquivo de configuração `.hyper.js`. Para configurar a fonte e o shell, siga os passos abaixo:
+
+    1. Abra o arquivo de configuração do Hyper, localizado em `~/.hyper.js`. Se você não sabe onde está o arquivo, ele geralmente fica na pasta do usuário, como `C:\Users\<Seu Nome>\AppData\Roaming\Hyper\`.
+
+    2. Modifique o arquivo `.hyper.js` para incluir a fonte **FiraCode Nerd Font** e ajustar o shell para o **WSL**. Adicione ou modifique as seguintes linhas:
 
     ```javascript
     module.exports = {
       config: {
-        shell: 'wsl.exe',
-        shellArgs: []
+        // Fonte para o terminal
+        fontFamily: 'FiraCode Nerd Font',
+
+        // Configuração do shell para o WSL
+        shell: 'C:\\Windows\\System32\\wsl.exe',
+        shellArgs: ['~'],
+
+        // Outras configurações que você pode querer adicionar
+        // Exemplo de cores ou ajustes adicionais
       }
     };
     ```
+
+    3. Salve o arquivo e reinicie o **Hyper** para que as configurações sejam aplicadas.
+
+### Fontes no Hyper:
+
+Para garantir que a **FiraCode Nerd Font** esteja disponível, você precisará instalá-la primeiro. Se você ainda não tem a fonte instalada, siga os seguintes passos:
+
+- **Instalar a FiraCode Nerd Font**:
+  1. Acesse o site [Nerd Fonts](https://www.nerdfonts.com/) e baixe a fonte **FiraCode Nerd Font**.
+  2. Após o download, extraia o arquivo e instale as fontes no seu sistema.
+
+Com essas configurações, o **Hyper** estará pronto para usar o **FiraCode Nerd Font** e o shell do **WSL**, criando um ambiente mais confortável para trabalhar com desenvolvimento no terminal.
 
 ## Atualizar o Sistema Linux (WSL)
 
