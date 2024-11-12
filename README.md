@@ -194,7 +194,7 @@ Here are my main extensions for VSCode, organized by functionality:
 
 ### Theme/Decoration
 
-- **Houston** (modified): This theme has been customized to better suit my visual preferences. You can check the modified file [here](https://github.com/Leugz/Setup/blob/main/houston.json) for details on the changes.
+- **Houston** (modified): This theme has been customized to better suit my visual preferences. You can check the modified file [here](https://github.com/Leugz/Setup/blob/main/houston.json) for details on the changes. You can find the Houston theme in the official VSCode themes repository or check out the [official Houston GitHub repository](https://github.com/withastro/houston-vscode)
 - **Symbols**: For custom icons and visual improvements.
 
 ### Key Functions
@@ -221,4 +221,4 @@ Here are my main extensions for VSCode, organized by functionality:
 
 ---
 
-In addition to the extensions, the `settings.json` file of VSCode also contains my personal configurations. You can check this file [here](https://github.com/Leugz/Setup/blob/main/settings.json) to apply them to your editor.
+In addition to the extensions, the `settings.json` file of VSCode also contains my personal configurations. The file I share is a customization based on the settings of **Diego Fernandes**, an instructor at **Rocketseat**. My goal was to adjust the settings to optimize my development environment based on my workflow, but the foundation of the file follows the model used by Diego. You can view the file and adapt it as needed by accessing it [here](https://github.com/Leugz/Setup/blob/main/settings.json).
