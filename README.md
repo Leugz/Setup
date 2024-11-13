@@ -203,7 +203,7 @@ Here are my main extensions for VSCode, organized by functionality:
 - **Auto Rename Tag**: Automatically renames opening/closing HTML/JSX tags.
 - **Highlight Matching Tag**: Highlights the matching tag while editing.
 - **Auto Import**: Automatically adds imports for modules and packages.
-- **Auto Prefixer**: Automatically adds CSS prefixes.
+- **AutoPrefixer**: Automatically adds CSS prefixes.
 - **Color Highlight**: Highlights colors in the code.
 
 ### General
