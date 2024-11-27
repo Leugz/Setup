@@ -145,6 +145,7 @@
   },
   // Workspace Settings
   "window.commandCenter": false,
+  "window.restoreWindows": "none",
   "workbench.editor.stickyScroll.enabled": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": []
@@ -173,5 +174,12 @@
   // Miscellaneous Settings
   "console-ninja.featureSet": "Community",
   "update.mode": "default",
-  "explorer.hidesExplorerArrows": false
+  "explorer.hidesExplorerArrows": false,
+  "files.autoSave": "afterDelay",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  }
 }
